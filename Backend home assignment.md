@@ -23,7 +23,9 @@ We have established the following rules:
 - on top of supplier crates, we can use crates with 6-slots, 12-slots and, for small containers only, 20-slots
 - there are some exceptions for products from the following brands:
 	- "Orangina": bottles are too large to fit in a 20-slots crate however 2 bottles can fit in 1 slot (one bottle being upside-down): we never want to use the supplier crates for Orangina bottles as the crates sizing is very different from other crates so we will always move the units to 6 or 12-slots crates.
-	- "La Tournée" containers are slightly too large to smoothly fit in 6 and 12-slots crates: we therefore can only put 5 containers in a 6-slots crate and 10 containers in a 12-slots crate.
+	- "La Tournée" containers : 
+	   - are not received in crates
+	   - are slightly too large to smoothly fit in 6 and 12-slots crates: we therefore can only put 5 containers in a 6-slots crate and 10 containers in a 12-slots crate.
 
 **Examples:**
 * Evian 1L bottles are supplied in 12-slots crate by our supplier. If a customer orders 18 units, we would deliver 1 supplier crate and 1 6-slots crate.
@@ -67,10 +69,10 @@ The objectives are:
   * Output data: json struct with count of quantity of all crates types (example below)
 	```
 	{
-		Supplier: 0,
-		Slot6: 1,
-		Slot12: 0,
-		Slot20: 0
+		"Supplier": 0,
+		"Slot6": 1,
+		"Slot12": 0,
+		"Slot20": 0
 	}
 	```
 
@@ -81,8 +83,8 @@ The objectives are:
 	- Slot20:    number of crates with 20-slots
 
 
-* Implement a controller function which compute the actual dispatch, called by the API endpoint function and returning the computed data. This controller will calculate the best quantity of crates for the given order, based on loaded store datas and all the constraints described above.
-* you can use the load_data function below in your controller to load the store datas : the store datas simulates what you may found in a real database.
+* Implement a controller function which compute the actual dispatch, called by the API endpoint function and returning the computed data. This controller will calculate the best quantity of crates for the given order, based on loaded store data and all the constraints described above.
+* you can use the load_data function below in your controller to load the store data : the store data simulates what you may found in a real database.
 
 * Submit your implementation in a git repo.
 * Include all details you would provide for a production ready contribution.
@@ -90,7 +92,7 @@ The objectives are:
 ### What we will look at
 
 * Structure of the project
-* Input and output datas
+* Input and output data
 * error cases
 * How all rules and exceptions for the compute function are handled and tested
 * Code structure, style, comments, etc..
