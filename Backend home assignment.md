@@ -32,7 +32,12 @@ We have established the following rules:
 ## Tips
 
 * to determine if a product is a small container (i.e. a container which fit in the 20 slots crate), we can look at the Deposit data in the store : if 20cts: its a small container, if 40cts its a big container.
-
+* stucture of the store data:
+  - sku
+  - brand
+  - packing: Number of units packed in a single crate by our suppliers; for beverages, it can be 6, 12, etc..
+  - deposit: Deposit per unit expressed in euros: 20cts for small containers, 40cts for large containers.
+  - preparation_in_crate: Flag to separate products that are delivered by the supplier in crates vs bags.
 
 ## Assignment
 
