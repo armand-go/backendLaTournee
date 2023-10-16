@@ -1,3 +1,4 @@
 from .data import Data
+from .orders import Product, Dispatch
 
-all = [Data]
+all = [Data, Dispatch, Product]

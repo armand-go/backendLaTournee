@@ -2,3 +2,5 @@ bandit
 fastapi
 flake8
 uvicorn
+pytest
+httpx

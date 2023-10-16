@@ -17,7 +17,7 @@ class Payload:
 
 
 class Data:
-    ep = APIRouter()
+    ep = APIRouter(prefix="/data")
     __uc: usecases.Data
 
     def __init__(self, data_usecases: usecases.Data) -> None:

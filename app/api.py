@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from ._dependencies import Core, Endpoints, Store, Usecase
+from ._dependencies import Core, Endpoints, Store, Usecase, Managers
 
 
 class API:
@@ -13,8 +13,9 @@ class API:
 
 class LaTourneeAPI:
     core = Core()
+    manager = Managers()
     store = Store(core=core)
-    usecase = Usecase(store=store)
+    usecase = Usecase(store=store, manager=manager)
     endpoints = Endpoints(usecases=usecase)
 
-    router = API(endpoints.data)
+    router = API(endpoints.data, endpoints.orders)
