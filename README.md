@@ -35,6 +35,8 @@ The project is organized along the hexagonal lines. The "User-Side" part is in t
 The "Business Logic" is found in the various Usecases, while the "Server Side" is found in the adapters.
 The various bricks are completed in the [dependencies.py](app/dependencies.py) file while the routes are added in this [**init**](app/__init__.py) file.
 
+This choice of architecture can be discussed during the Technical interview. The main argument is that it will be very easy to change the various bricks in the future. For example, if we want to implement a PostgreSQL database, we'll only need to redesign the 'Store' part of the project. The logic of the rest of the code will remain unchanged. Another argument is the speed of code once the architecture is in place.
+
 ### Trigger the API's endpoints
 
 Go to [Swagger](http://localhost:8000/docs) and play with the differents endpoints available.
