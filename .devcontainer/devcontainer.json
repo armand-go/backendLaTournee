@@ -1,0 +1,51 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose
+{
+	"name": "Tech Test",
+
+	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
+	// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
+	"dockerComposeFile": [
+		"../docker-compose.yml",
+		"docker-compose.yml"
+	],
+
+	// The 'service' property is the name of the service for the container that VS Code should
+	// use. Update this value and .devcontainer/docker-compose.yml to the real service name.
+	"service": "python_app",
+
+	// The optional 'workspaceFolder' property is the path VS Code should open by default when
+	// connected. This is typically a file mount in .devcontainer/docker-compose.yml
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+
+	"customizations": {
+		"vscode": {
+		  "extensions": [
+			"esbenp.prettier-vscode",
+			"hbenl.vscode-test-explorer",
+			"ms-python.python",
+			"ms-python.flake8",
+			"ms-python.black-formatter"
+		  ],
+		  "settings": {
+			"python.linting.flake8Enabled": true,
+			"python.linting.pylintEnabled": false,
+			"python.linting.enabled": true,
+			"python.formatting.provider": "black",
+			"python.testing.pytestArgs": [],
+			"editor.formatOnPaste": false,
+			"editor.formatOnSave": true,
+			"files.trimTrailingWhitespace": true,
+			"python.linting.banditEnabled": true,
+			"python.formatting.blackArgs": [
+			  "--line-length=99"
+			],
+			"files.eol": "\n",
+			"[python]": {
+				"editor.defaultFormatter": "ms-python.black-formatter",
+				"editor.formatOnSave": true
+			  }
+		}
+	  }
+	}
+}

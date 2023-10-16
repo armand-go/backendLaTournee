@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  python_app: &python_app
+    build:
+      context: ./
+      dockerfile: infra/images/local/api.Dockerfile
+    volumes:
+      - .:/home/app
+    networks:
+      - laTournee
+    env_file: .env
+    environment:
+      - PYTHONUNBUFFERED=TRUE
+
+  technical_test_api: &technical_test_api
+    <<: *python_app
+    container_name: technical_test_api
+    env_file: .env
+    command:
+      - "python"
+      - "app.py"
+    ports:
+      - 8000:8000
+
+volumes:
+  postgres-data: null
+networks:
+  laTournee:
+    name: laTournee
