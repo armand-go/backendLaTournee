@@ -35,14 +35,6 @@ class Orders:
                     old_big_slot_remaining=big_slot_remaining,
                     old_small_slot_remaining=small_slot_remaining,
                 )
-
-                print(
-                    f"Dispatch for product {pproduct.sku}: ",
-                    dispatch_for_product,
-                    big_slot_remaining,
-                    small_slot_remaining,
-                )
-
             except Exception:
                 raise ErrUnexpected()
 
